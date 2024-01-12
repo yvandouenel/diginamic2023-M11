@@ -1,5 +1,6 @@
 import Task from "./classes/Task.js";
 import FormAdd from "./classes/FormAdd.js";
+import FormUpdate from "./classes/FormUpdate.js";
 const root = document.getElementById("root");
 
 // tasks représente l'état (state) des tâches, c'est à dire dans notre cas, l'état de l'application
@@ -8,8 +9,10 @@ const tasks = [
   { title: "Faire de la voile", id: 2, done: false },
   { title: "Faire la fête", id: 3, done: true }
 ]
-// Création du formulaire
+// Création des formulaires
 new FormAdd(root, setTasks);
+// Récupération de la référence du formulaire d'update
+const formUdpdate = new FormUpdate(root, setTasks);
 
 function setTasks(data, action) {
   switch (action) {
@@ -49,12 +52,10 @@ function renderTasks() {
     // Si le nombre est négatif, on change l'ordre, sinon l'ordre reste inchangé
     return a.done - b.done;
   }).forEach((task) => {
-    const t = new Task(task, root, setTasks);
+    const t = new Task(task, root, setTasks, formUdpdate);
   })
   console.log(`tasks : `, tasks);
 }
-
-
 
 renderTasks();
 
