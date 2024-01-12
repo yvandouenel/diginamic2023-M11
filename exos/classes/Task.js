@@ -32,10 +32,11 @@ export default class Task extends DomUtils {
     // Récupération de la référence du bouton "valider"
     this.domElts.btnValidate.addEventListener("click", (event) => {
       console.log(`Clic sur bouton valider`);
+      // Ici je modifie une valeur comprise dans tasks car le passage s'est fait par référence
       this.task.done = !this.task.done;
-      this.domElts.btnValidate.innerText = this.task.done ? "Invalider" : "Valider";
-      this.domElts.h2.style.textDecoration = (this.task.done) ? "line-through" : "";
-      
+      // Modification de tasks
+      this.setTasks(this.task, "update");
+
     })
 
     // Récupération de la référence du bouton supprimer

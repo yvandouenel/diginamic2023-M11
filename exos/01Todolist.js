@@ -2,7 +2,7 @@ import Task from "./classes/Task.js";
 import FormAdd from "./classes/FormAdd.js";
 const root = document.getElementById("root");
 
-// tasks représente l'état des tâches, c'est à dire dans notre cas, l'état de l'application
+// tasks représente l'état (state) des tâches, c'est à dire dans notre cas, l'état de l'application
 const tasks = [
   { title: "Faire de la moto", id: 1, done: true },
   { title: "Faire de la voile", id: 2, done: false },
@@ -28,7 +28,8 @@ function setTasks(data, action) {
       renderTasks();
       break;
     case "update":
-
+      // rappeler l'affichage de la page à partir du state (renderTasks)
+      renderTasks();
       break;
     default:
       break;
