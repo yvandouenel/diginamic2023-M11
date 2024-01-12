@@ -30,8 +30,11 @@ export default class FormAdd extends DomUtils {
       // Récupération de la value de l'input
       console.log(`this.domElts.input.value : `, this.domElts.input.value);
       // Création d'une nouvelle tâche en l'ajoutant à tasks (le state)
-      this.setTasks({ title: this.domElts.input.value, id: Math.floor(Math.random() * 10000), done: false }, "add");
+      // La condition teste si la valeur de l'input (une string) est truly (false si == "", vrai sinon)
+      if(this.domElts.input.value) this.setTasks({ title: this.domElts.input.value, id: Math.floor(Math.random() * 10000), done: false }, "add");
 
+      // Remettre la value de l'input à "" (chaîne de caractères vide)
+      this.domElts.input.value = "";
 
     })
   }

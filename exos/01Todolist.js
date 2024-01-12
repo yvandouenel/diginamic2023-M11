@@ -35,16 +35,23 @@ function setTasks(data, action) {
       break;
   }
 }
+// Affichage des tâches
 function renderTasks() {
   // Suppression des taches existantes
   const sectionsTasks = document.querySelectorAll(".section-task");
   sectionsTasks.forEach((sectionTask) => {
     sectionTask.remove();
   });
-  // Création visuelle  des tâches à partir de l'état (state)
-  tasks.forEach((task) => {
+  // Création visuelle  des tâches à partir de l'état (state) préalablement classé via sort
+  // Comme sort renvoie un tableau, on peut chaîner l'appel de sort avec l'appel de forEach (puisque cette méthode doit être appelé depuis l'instance d'un table)
+  tasks.sort((a, b) => {
+    // doit retourner un nombre négatif ou positif
+    // Si le nombre est négatif, on change l'ordre, sinon l'ordre reste inchangé
+    return a.done - b.done;
+  }).forEach((task) => {
     const t = new Task(task, root, setTasks);
   })
+  console.log(`tasks : `, tasks);
 }
 
 
