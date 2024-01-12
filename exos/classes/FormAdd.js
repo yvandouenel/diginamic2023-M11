@@ -12,10 +12,10 @@ export default class FormAdd extends DomUtils {
     this.handleEvents();
   }
   render() {
-    const form = this.addDomElement("form", "", root);
-    const label = this.addDomElement("label", "Tâche : ", form, [{ for: "task-name" }]);
-    const input = this.addDomElement("input", "", form, [{ id: "task-name" }, { type: "text" }]);
-    const btnAddTask = this.addDomElement("button", "Ajouter", form, [{ type: "submit" }]);
+    const form = this.addDomElement("form", "", root, {class: "d-flex gap-2 mt-5 align-items-center"});
+    const label = this.addDomElement("label", "Tâche : ", form, { for: "task-name" });
+    const input = this.addDomElement("input", "", form, { id: "task-name", type: "text" });
+    const btnAddTask = this.addDomElement("button", "Ajouter", form, { type: "submit", class: "btn btn-success" });
 
     return {
       form,

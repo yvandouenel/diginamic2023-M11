@@ -1,6 +1,6 @@
 import DomUtils from "./DomUtils.js";
 
-export default class Task extends DomUtils  {
+export default class Task extends DomUtils {
   constructor(title, id, done, root) {
     super();
     this.title = title;
@@ -15,11 +15,12 @@ export default class Task extends DomUtils  {
     this.handleEvents();
   }
   render() {
-    const section = this.addDomElement("section", "", this.root);
+    const section = this.addDomElement("section", "", this.root, { class: "d-flex justify-content-between my-2" });
     const h2 = this.addDomElement("h2", this.title, section);
     h2.style.textDecoration = this.done ? "line-through" : "";
-    const btnValidate = this.addDomElement("button", this.done ? "Invalider" : "Valider", section);
-    const btnDelete = this.addDomElement("button", "Supprimer", section);
+    const wrapper = this.addDomElement("div", "", section);
+    const btnValidate = this.addDomElement("button", this.done ? "Invalider" : "Valider", wrapper, { class: "btn btn-secondary me-2" });
+    const btnDelete = this.addDomElement("button", "Supprimer", wrapper, { class: "btn btn-danger" });
     return {
       btnValidate,
       btnDelete,
@@ -43,5 +44,5 @@ export default class Task extends DomUtils  {
       this.domElts.section.remove();
     })
   }
-  
+
 }

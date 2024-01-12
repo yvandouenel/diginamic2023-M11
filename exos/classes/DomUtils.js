@@ -1,11 +1,11 @@
 export default class DomUtils {
-  addDomElement(markup, text, parentDom, attributes = []) {
+  addDomElement(markup, text, parentDom, attributes = {}) {
     const domElt = document.createElement(markup);
     domElt.innerText = text;
     parentDom.appendChild(domElt);
-    attributes.forEach((attribute) => {
-      domElt.setAttribute(attribute.name, attribute.value);
-    })
+    for(let key in attributes) {
+      domElt.setAttribute(key, attributes[key]);
+    }
     return domElt;
   }
 }
