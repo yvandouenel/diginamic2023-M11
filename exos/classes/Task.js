@@ -55,7 +55,8 @@ export default class Task extends DomUtils {
     this.domElts.btnUpdate.addEventListener("click", (event) => {
       console.log(`Clic sur bouton modifier`);
       // Affichage du formulaire de modification
-      this.formUpdate.show();
+      if(this.formUpdate.isHidden) this.formUpdate.setIsHidden(false);
+      else  this.formUpdate.setIsHidden(true);
 
       // Indiquer au formulaire quelle tâche il doit mofifier
       this.formUpdate.setTaskToUpdate(this.task);

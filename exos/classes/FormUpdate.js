@@ -1,5 +1,4 @@
 import DomUtils from "./DomUtils.js";
-import Task from "./Task.js";
 
 export default class FormUpdate extends DomUtils {
   constructor(root, setTasks) {
@@ -7,19 +6,28 @@ export default class FormUpdate extends DomUtils {
     this.root = root;
     this.setTasks = setTasks;
     this.taskToUpdate = null;
+    
 
     this.domElts = this.render();
     console.log(`this.domElts`, this.domElts);
     // A la construction du formulaire, on le cache
-    this.hide();
+    this.isHidden = this.hide();
     // Gestion des événements
     this.handleEvents();
   }
+  setIsHidden(value) {
+    this.isHidden =  value;
+    if (value) {
+      this.hide();
+    } else this.show()
+  }
   hide() {
     this.domElts.form.setAttribute('style', 'display:none !important');
+    return true;
   }
   show( ) {
     this.domElts.form.setAttribute('style', 'display:flex !important');
+    return false;
   }
   setTaskToUpdate(task) {
     this.taskToUpdate = task;
