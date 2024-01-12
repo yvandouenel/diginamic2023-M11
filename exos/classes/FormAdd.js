@@ -2,9 +2,10 @@ import DomUtils from "./DomUtils.js";
 import Task from "./Task.js";
 
 export default class FormAdd extends DomUtils {
-  constructor(root) {
+  constructor(root, setTasks) {
     super();
     this.root = root;
+    this.setTasks = setTasks;
 
     this.domElts = this.render();
 
@@ -28,8 +29,9 @@ export default class FormAdd extends DomUtils {
       console.log(`Dans handleEvents submit`);
       // Récupération de la value de l'input
       console.log(`this.domElts.input.value : `, this.domElts.input.value);
-      // Création d'une nouvelle tâche
-      new Task(this.domElts.input.value, Math.floor(Math.random() * 10000), false, this.root);
+      // Création d'une nouvelle tâche en l'ajoutant au state
+
+      //new Task(this.domElts.input.value, Math.floor(Math.random() * 10000), false, this.root);
 
     })
   }
