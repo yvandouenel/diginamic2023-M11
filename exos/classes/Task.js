@@ -35,6 +35,7 @@ export default class Task extends DomUtils {
       this.task.done = !this.task.done;
       this.domElts.btnValidate.innerText = this.task.done ? "Invalider" : "Valider";
       this.domElts.h2.style.textDecoration = (this.task.done) ? "line-through" : "";
+      
     })
 
     // Récupération de la référence du bouton supprimer

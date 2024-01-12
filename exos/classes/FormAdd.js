@@ -13,7 +13,7 @@ export default class FormAdd extends DomUtils {
     this.handleEvents();
   }
   render() {
-    const form = this.addDomElement("form", "", root, {class: "d-flex gap-2 mt-5 align-items-center"});
+    const form = this.addDomElement("form", "", root, { class: "d-flex gap-2 mt-5 align-items-center" });
     const label = this.addDomElement("label", "Tâche : ", form, { for: "task-name" });
     const input = this.addDomElement("input", "", form, { id: "task-name", type: "text" });
     const btnAddTask = this.addDomElement("button", "Ajouter", form, { type: "submit", class: "btn btn-success" });
@@ -29,9 +29,9 @@ export default class FormAdd extends DomUtils {
       console.log(`Dans handleEvents submit`);
       // Récupération de la value de l'input
       console.log(`this.domElts.input.value : `, this.domElts.input.value);
-      // Création d'une nouvelle tâche en l'ajoutant au state
+      // Création d'une nouvelle tâche en l'ajoutant à tasks (le state)
+      this.setTasks({ title: this.domElts.input.value, id: Math.floor(Math.random() * 10000), done: false }, "add");
 
-      //new Task(this.domElts.input.value, Math.floor(Math.random() * 10000), false, this.root);
 
     })
   }

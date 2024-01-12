@@ -23,8 +23,9 @@ function setTasks(data, action) {
       break;
     case "add":
       // Ajouter la nouvelle tâche à tasks
-
+      tasks.push(data);
       // rappeler l'affichage de la page à partir du state (renderTasks)
+      renderTasks();
       break;
     case "update":
 
@@ -36,7 +37,7 @@ function setTasks(data, action) {
 function renderTasks() {
   // Suppression des taches existantes
   const sectionsTasks = document.querySelectorAll(".section-task");
-  sectionsTasks.forEach((sectionTask)=>{
+  sectionsTasks.forEach((sectionTask) => {
     sectionTask.remove();
   });
   // Création visuelle  des tâches à partir de l'état (state)
