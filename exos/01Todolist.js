@@ -1,7 +1,7 @@
 import Task from "./classes/Task.js";
 import FormAdd from "./classes/FormAdd.js";
 import FormUpdate from "./classes/FormUpdate.js";
-import { addTask, loadTasks } from "./services/fetchData.js"
+import { addTask, deleteTask, loadTasks } from "./services/fetchData.js"
 
 const root = document.getElementById("root");
 
@@ -31,6 +31,7 @@ function setTasks(data, action) {
       tasks.splice(index, 1);
       // rappeler l'affichage de la page à partir du state (renderTasks)
       renderTasks();
+      deleteTask(data.id);
       break;
     case "add":
       // Ajouter la nouvelle tâche à tasks

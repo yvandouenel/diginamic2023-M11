@@ -1,18 +1,18 @@
 export function loadTasks() {
   return fetch("http://localhost:3001/tasks")
-  .then((response)=>{
-    console.log(`response.status`, response.status);
-    if(response.status) return response.json();
-  })
-  .then((tasks)=>{
-    return tasks;
-  })
-  .catch(error => {
-    console.error("Erreur attrapée dans loadTask : " + error)
-  })
+    .then((response) => {
+      console.log(`response.status`, response.status);
+      if (response.status) return response.json();
+    })
+    .then((tasks) => {
+      return tasks;
+    })
+    .catch(error => {
+      console.error("Erreur attrapée dans loadTask : " + error)
+    })
 }
 export function addTask(task) {
-  fetch("http://localhost:3001/tasks",
+  fetch("http://localhost:3001/tasks/",
     {
       headers: {
         'Accept': 'application/json',
@@ -20,6 +20,19 @@ export function addTask(task) {
       },
       method: "POST",
       body: JSON.stringify(task)
+    })
+    .then(function (res) { console.log(res) })
+    .catch(function (res) { console.log(res) })
+}
+export function deleteTask(taskId) {
+  console.log(`dans deleteTask, taskId : `, taskId);
+  fetch("http://localhost:3001/tasks/" + taskId,
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "DELETE"
     })
     .then(function (res) { console.log(res) })
     .catch(function (res) { console.log(res) })
