@@ -1,7 +1,7 @@
 import Task from "./classes/Task.js";
 import FormAdd from "./classes/FormAdd.js";
 import FormUpdate from "./classes/FormUpdate.js";
-import loadTasks from "./services/fetchData.js"
+import { addTask, loadTasks } from "./services/fetchData.js"
 
 const root = document.getElementById("root");
 
@@ -10,12 +10,12 @@ let tasks = [];
 
 //Récupération des données via un fetch sur json-server
 loadTasks()
-.then((tasksFormServer)=>{
-  console.log(`tasks reçues depuis le serveur `, tasksFormServer);
-  // Alimentation de la variable tasks
-  tasks = tasksFormServer;
-  renderTasks();
-});
+  .then((tasksFormServer) => {
+    console.log(`tasks reçues depuis le serveur `, tasksFormServer);
+    // Alimentation de la variable tasks
+    tasks = tasksFormServer;
+    renderTasks();
+  });
 
 // Création des formulaires
 new FormAdd(root, setTasks);
@@ -37,6 +37,8 @@ function setTasks(data, action) {
       tasks.push(data);
       // rappeler l'affichage de la page à partir du state (renderTasks)
       renderTasks();
+      // Ajouter la tâche sur le serveur json-server
+      addTask(data);
       break;
     case "update":
       // rappeler l'affichage de la page à partir du state (renderTasks)
