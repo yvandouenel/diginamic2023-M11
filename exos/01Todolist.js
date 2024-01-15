@@ -1,14 +1,22 @@
 import Task from "./classes/Task.js";
 import FormAdd from "./classes/FormAdd.js";
 import FormUpdate from "./classes/FormUpdate.js";
+import loadTasks from "./services/fetchData.js"
+
 const root = document.getElementById("root");
 
 // tasks représente l'état (state) des tâches, c'est à dire dans notre cas, l'état de l'application
-const tasks = [
-  { title: "Faire de la moto", id: 1, done: true },
-  { title: "Faire de la voile", id: 2, done: false },
-  { title: "Faire la fête", id: 3, done: true }
-]
+let tasks = [];
+
+//Récupération des données via un fetch sur json-server
+loadTasks()
+.then((tasksFormServer)=>{
+  console.log(`tasks reçues depuis le serveur `, tasksFormServer);
+  // Alimentation de la variable tasks
+  tasks = tasksFormServer;
+  renderTasks();
+});
+
 // Création des formulaires
 new FormAdd(root, setTasks);
 // Récupération de la référence du formulaire d'update
