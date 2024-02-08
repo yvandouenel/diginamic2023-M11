@@ -63,7 +63,7 @@ export default class FormUpdate extends DomUtils {
       this.domElts.input.value = "";
 
       // Cacher le formulaire
-      this.hide();
+      this.setIsHidden(true);
 
       // Remettre à null this.taskToUpdate
       this.taskToUpdate = null;

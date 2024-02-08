@@ -1,7 +1,6 @@
 import './App.css';
-import Title from './components/Title';
-import { Outlet } from "react-router-dom";
-
+import { Outlet, Link } from "react-router-dom";
+import logo from './assets/logovelomobile.png'
 /**
  * Gère l'affichage du composant App
  * App appelle ici le composant Title avec deux arguments sous la forme de clés/valeurs 
@@ -12,8 +11,14 @@ function App() {
   return (
     <div className="App">
       <header>
-        navbar
-        logo
+        <nav>
+          <ul>
+            <li>
+              <Link to={`/products`}>Produits</Link>
+            </li>
+          </ul>
+        </nav>
+        <Link to={'/'}><img src={logo} alt="Logo vélomobile - retour accueil" /></Link>
         <h1>Vélomobile : l'alternative à la voiture</h1>
       </header>
       <main>
