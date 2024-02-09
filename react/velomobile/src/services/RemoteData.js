@@ -19,7 +19,7 @@ export default class RemoteData {
       })
   }
   static loadUsers() {
-    return fetch(RemoteData.url + "/users")
+    return fetch(RemoteData.url + "users")
       .then((response) => {
         console.log(`response.status`, response.status);
         if (response.status == 200) {
@@ -29,6 +29,20 @@ export default class RemoteData {
       .then((users) => {
         console.log(`users`, users);
         return users;
+      })
+  }
+  static isLogged(login, pwd) {
+    console.log(`DAns isLogged`, login, pwd);
+    return RemoteData.loadUsers()
+      .then((users) => {
+        let isLogged = false;
+        for (let i = 0; i < users.length; i++) {
+          if (login === users[i].login && pwd === users[i].pwd) {
+            isLogged = true;
+            break;
+          } else return false
+        }
+        return isLogged;
       })
   }
 }

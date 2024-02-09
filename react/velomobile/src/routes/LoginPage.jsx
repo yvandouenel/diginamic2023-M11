@@ -1,3 +1,4 @@
+import RemoteData from "../services/RemoteData";
 const LoginPage = () => {
   return (
     <section>
@@ -14,7 +15,11 @@ const LoginPage = () => {
           const pwd = formData.get("pwd");
           console.log(`login`, login, "pwd", pwd);
           //event.target.reset();
-
+          // Vérification du l'utilisateur via un service
+          RemoteData.isLogged(login, pwd)
+            .then((data) => {
+              console.log(`data ?`, data);
+            });
         }}
       >
         <label htmlFor="login">Identifiant</label>
