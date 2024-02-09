@@ -12,14 +12,14 @@ const ProductsPage = () => {
       id: 1,
       model: "lvf",
       description: "Le vélo mobile français qui a fait ses preuves",
-      photo: "lvf.jpg",
+      photo: "vm1.png",
       weight: 32
     },
     {
       id: 2,
       model: "lvq",
       description: "Le vélo mobile sportif aux performances incroyables",
-      photo: "lvq.jpg",
+      photo: "vm2.png",
       weight: 22
     }
   ]);
