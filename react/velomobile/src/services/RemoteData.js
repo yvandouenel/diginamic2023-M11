@@ -1,12 +1,12 @@
 export default class RemoteData {
-  static url = "http://localhost:3001/velosMobilesss";
+  static url = "http://localhost:3001/";
   /**
    * L'effet global de cette méthode est d'envoyer une requête à un serveur distant, de vérifier si la requête a réussi, d'analyser la réponse au format JSON, de l'afficher dans la console  et de la renvoyer. Si une étape échoue, il affiche un message d'erreur.
    * 
    * @returns Promise<{}[]>
    */
   static loadVelosMobiles() {
-    return fetch(RemoteData.url)
+    return fetch(RemoteData.url + "/velosMobiles")
       .then((response) => {
         console.log(`response.status`, response.status);
         if (response.status == 200) {
@@ -17,6 +17,18 @@ export default class RemoteData {
         console.log(`velosMobiles`, velosMobiles);
         return velosMobiles;
       })
-
+  }
+  static loadUsers() {
+    return fetch(RemoteData.url + "/users")
+      .then((response) => {
+        console.log(`response.status`, response.status);
+        if (response.status == 200) {
+          return response.json();
+        } else throw new Error("Problème de serveur dans loadUsers. Statut de l'erreur : " + response.status)
+      })
+      .then((users) => {
+        console.log(`users`, users);
+        return users;
+      })
   }
 }

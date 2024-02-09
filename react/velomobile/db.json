@@ -14,5 +14,12 @@
       "photo": "vm2.png",
       "weight": 22
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "login": "root",
+      "pwd": "root"
+    }
   ]
 }

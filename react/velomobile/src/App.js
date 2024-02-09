@@ -16,6 +16,9 @@ function App() {
             <li>
               <Link to={`/products`}>Produits</Link>
             </li>
+            <li>
+              <Link to={`/login`}>Connexion</Link>
+            </li>
           </ul>
         </nav>
         <Link to={'/'}><img src={logo} alt="Logo vélomobile - retour accueil" /></Link>
