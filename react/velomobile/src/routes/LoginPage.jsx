@@ -1,5 +1,7 @@
 import RemoteData from "../services/RemoteData";
+import { useOutletContext } from "react-router-dom";
 const LoginPage = () => {
+  const [isLoggedIn, setIsLoggedIn] = useOutletContext();
   return (
     <section>
       <h2>Identification</h2>
@@ -19,7 +21,9 @@ const LoginPage = () => {
           RemoteData.isLogged(login, pwd)
             .then((data) => {
               console.log(`data ?`, data);
+              setIsLoggedIn(data);
             });
+
         }}
       >
         <label htmlFor="login">Identifiant</label>

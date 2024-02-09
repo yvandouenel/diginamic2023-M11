@@ -1,6 +1,7 @@
 import './App.css';
 import { Outlet, Link } from "react-router-dom";
-import logo from './assets/logovelomobile.png'
+import logo from './assets/logovelomobile.png';
+import { useState } from 'react';
 /**
  * Gère l'affichage du composant App
  * App appelle ici le composant Title avec deux arguments sous la forme de clés/valeurs 
@@ -8,11 +9,13 @@ import logo from './assets/logovelomobile.png'
  * @returns JSX
  */
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="App">
       <header>
         <nav>
           <ul>
+            <li>{isLoggedIn ? "LoggedIn" : "Not loggedIn"}</li>
             <li>
               <Link to={`/products`}>Produits</Link>
             </li>
@@ -26,7 +29,7 @@ function App() {
       </header>
       <main>
         {/* Outlet indique l'endroit où vont s'afficher les composants définis dans les routes enfants */}
-        <Outlet />
+        <Outlet context={[isLoggedIn, setIsLoggedIn]} />
       </main>
 
       <footer></footer>
