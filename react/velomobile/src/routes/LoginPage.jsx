@@ -1,5 +1,5 @@
 import RemoteData from "../services/RemoteData";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, redirect } from "react-router-dom";
 const LoginPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useOutletContext();
   return (
@@ -22,6 +22,10 @@ const LoginPage = () => {
             .then((data) => {
               console.log(`data ?`, data);
               setIsLoggedIn(data);
+              if (data) {
+                console.log(`redirection vers la page d'accueil`);
+                //return redirect("/");
+              }
             });
 
         }}

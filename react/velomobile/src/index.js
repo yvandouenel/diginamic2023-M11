@@ -10,6 +10,7 @@ import ProductsPage from './routes/ProductsPage';
 import HomePage from './routes/HomePage';
 import ErrorPage from './routes/ErrorPage';
 import LoginPage from './routes/LoginPage';
+import LogoutPage from './routes/LogoutPage';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />,
+      },
+      {
+        path: "logout",
+        element: <LogoutPage />,
       },
     ],
   },

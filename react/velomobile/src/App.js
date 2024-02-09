@@ -10,17 +10,18 @@ import { useState } from 'react';
  */
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  let pathLogged = isLoggedIn ? '/logout' : '/login'
   return (
     <div className="App">
       <header>
         <nav>
           <ul>
-            <li>{isLoggedIn ? "LoggedIn" : "Not loggedIn"}</li>
+            <li></li>
             <li>
               <Link to={`/products`}>Produits</Link>
             </li>
             <li>
-              <Link to={`/login`}>Connexion</Link>
+              <Link to={pathLogged}>{isLoggedIn ? "Déconnexion" : "Connexion"}</Link>
             </li>
           </ul>
         </nav>
