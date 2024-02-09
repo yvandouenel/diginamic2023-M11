@@ -38,11 +38,10 @@ export default class RemoteData {
         let isLogged = false;
         for (let i = 0; i < users.length; i++) {
           if (login === users[i].login && pwd === users[i].pwd) {
-            isLogged = true;
-            break;
-          } else return false
+            return true;
+          }
         }
-        return isLogged;
+        return false;
       })
   }
 }
