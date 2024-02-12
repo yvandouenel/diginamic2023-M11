@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <header>
+        <button className="btn btn-danger">Test bouton danger</button>
         <nav>
           <ul>
             <li></li>

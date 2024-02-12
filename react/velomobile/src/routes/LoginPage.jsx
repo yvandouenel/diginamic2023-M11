@@ -1,7 +1,8 @@
 import RemoteData from "../services/RemoteData";
-import { useOutletContext, redirect } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useOutletContext();
+  const navigate = useNavigate();
   return (
     <section>
       <h2>Identification</h2>
@@ -24,7 +25,7 @@ const LoginPage = () => {
               setIsLoggedIn(data);
               if (data) {
                 console.log(`redirection vers la page d'accueil`);
-                //return redirect("/");
+                navigate('/');
               }
             });
 

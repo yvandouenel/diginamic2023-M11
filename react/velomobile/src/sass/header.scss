@@ -1,0 +1,15 @@
+/* Code imbriqué (nested) */
+header {
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+
+      a {
+        @include button($fc: orange);
+      }
+    }
+  }
+}

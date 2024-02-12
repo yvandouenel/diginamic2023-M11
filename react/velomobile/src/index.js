@@ -11,6 +11,8 @@ import HomePage from './routes/HomePage';
 import ErrorPage from './routes/ErrorPage';
 import LoginPage from './routes/LoginPage';
 import LogoutPage from './routes/LogoutPage';
+import 'bootstrap/dist/css/bootstrap.css';
+import './sass/custom.scss';
 
 const router = createBrowserRouter([
   {
