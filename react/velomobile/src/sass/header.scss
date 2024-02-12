@@ -7,9 +7,8 @@ header {
       gap: 20px;
       justify-content: center;
 
-      a {
-        @include button($fc: orange);
-
+      /* Les svg pour la connexion/déconnexion */
+      li.login-out-link {
         svg {
           color: black;
           font-size: 1.2em;
@@ -20,6 +19,12 @@ header {
             color: $primary;
           }
         }
+      }
+
+      a {
+        @include button($fc: orange);
+
+
       }
     }
   }

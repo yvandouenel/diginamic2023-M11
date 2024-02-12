@@ -4,6 +4,7 @@ import logo from './assets/logovelomobile.png';
 import { useState } from 'react';
 import { IoIosLogIn } from "react-icons/io";
 import { CiLogout } from "react-icons/ci";
+import { PiPersonSimpleBike } from "react-icons/pi";
 
 /**
  * Gère l'affichage du composant App
@@ -25,10 +26,10 @@ function App() {
         <nav>
           <ul className='mt-4'>
             <li></li>
-            <li>
-              <Link to={`/products`}>Produits</Link>
+            <li className='products-link'>
+              <Link to={`/products`}><PiPersonSimpleBike />Produits</Link>
             </li>
-            <li>
+            <li className='login-out-link'>
               <Link to={pathLogged}>{isLoggedIn ? logInOutLink(true) : logInOutLink(false)}</Link>
             </li>
           </ul>
