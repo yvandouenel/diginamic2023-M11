@@ -14,9 +14,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <button className="btn btn-danger">Test bouton danger</button>
         <nav>
-          <ul>
+          <ul className='mt-4'>
             <li></li>
             <li>
               <Link to={`/products`}>Produits</Link>
