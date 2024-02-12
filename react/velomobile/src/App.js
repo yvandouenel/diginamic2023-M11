@@ -2,6 +2,9 @@ import './App.css';
 import { Outlet, Link } from "react-router-dom";
 import logo from './assets/logovelomobile.png';
 import { useState } from 'react';
+import { IoIosLogIn } from "react-icons/io";
+import { CiLogout } from "react-icons/ci";
+
 /**
  * Gère l'affichage du composant App
  * App appelle ici le composant Title avec deux arguments sous la forme de clés/valeurs 
@@ -11,6 +14,11 @@ import { useState } from 'react';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   let pathLogged = isLoggedIn ? '/logout' : '/login'
+  function logInOutLink(login) {
+    if (login) {
+      return (<><CiLogout />Déconnexion</>);
+    } else return (<><IoIosLogIn />Connexion</>);
+  }
   return (
     <div className="App">
       <header>
@@ -21,7 +29,7 @@ function App() {
               <Link to={`/products`}>Produits</Link>
             </li>
             <li>
-              <Link to={pathLogged}>{isLoggedIn ? "Déconnexion" : "Connexion"}</Link>
+              <Link to={pathLogged}>{isLoggedIn ? logInOutLink(true) : logInOutLink(false)}</Link>
             </li>
           </ul>
         </nav>

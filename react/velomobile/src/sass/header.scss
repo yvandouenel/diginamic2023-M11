@@ -9,6 +9,17 @@ header {
 
       a {
         @include button($fc: orange);
+
+        svg {
+          color: black;
+          font-size: 1.2em;
+        }
+
+        &:hover {
+          svg {
+            color: $primary;
+          }
+        }
       }
     }
   }

@@ -6,7 +6,7 @@ export default class RemoteData {
    * @returns Promise<{}[]>
    */
   static loadVelosMobiles() {
-    return fetch(RemoteData.url + "/velosMobiles")
+    return fetch(RemoteData.url + "velosMobiles")
       .then((response) => {
         console.log(`response.status`, response.status);
         if (response.status == 200) {
