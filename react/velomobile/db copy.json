@@ -18,8 +18,8 @@
   "users": [
     {
       "id": 1,
-      "login": "r",
-      "pwd": "r"
+      "login": "root",
+      "pwd": "root"
     }
   ]
 }

@@ -1,10 +1,8 @@
 import './App.css';
-import { Outlet, Link } from "react-router-dom";
-import logo from './assets/logovelomobile.png';
+import { Outlet } from "react-router-dom";
 import { useState } from 'react';
-import { IoIosLogIn } from "react-icons/io";
-import { CiLogout } from "react-icons/ci";
-import { PiPersonSimpleBike } from "react-icons/pi";
+import Header from './components/Header';
+
 
 /**
  * Gère l'affichage du composant App
@@ -14,29 +12,9 @@ import { PiPersonSimpleBike } from "react-icons/pi";
  */
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  let pathLogged = isLoggedIn ? '/logout' : '/login'
-  function logInOutLink(login) {
-    if (login) {
-      return (<><CiLogout />Déconnexion</>);
-    } else return (<><IoIosLogIn />Connexion</>);
-  }
   return (
-    <div className="App">
-      <header>
-        <nav>
-          <ul className='mt-4'>
-            <li></li>
-            <li className='products-link'>
-              <Link to={`/products`}><PiPersonSimpleBike />Produits</Link>
-            </li>
-            <li className='login-out-link'>
-              <Link to={pathLogged}>{isLoggedIn ? logInOutLink(true) : logInOutLink(false)}</Link>
-            </li>
-          </ul>
-        </nav>
-        <Link to={'/'}><img src={logo} alt="Logo vélomobile - retour accueil" /></Link>
-        <h1>Vélomobile : l'alternative à la voiture</h1>
-      </header>
+    <div className="App container">
+      <Header isLoggedIn={isLoggedIn} />
       <main>
         {/* Outlet indique l'endroit où vont s'afficher les composants définis dans les routes enfants */}
         <Outlet context={[isLoggedIn, setIsLoggedIn]} />

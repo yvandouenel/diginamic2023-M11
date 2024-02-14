@@ -1,0 +1,106 @@
+/* Code imbriqué (nested) */
+header {
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+
+      /* Les svg pour la connexion/déconnexion */
+      li.login-out-link {
+        svg {
+          color: black;
+          font-size: 1.2em;
+        }
+
+        &:hover {
+          svg {
+            color: $primary;
+          }
+        }
+      }
+
+      a {
+        @include button($fc: orange);
+        font-size: 1rem;
+
+      }
+    }
+  }
+}
+
+/**** NAVBAR issu de https: //www.youtube.com/watch?v=SihsGqNvRao&ab_channel=FromScratch-Led%C3%A9veloppementWebdez%C3%A9ro ****/
+nav {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: calc(0.5rem + 1.5vw);
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+  font-size: 1.5em;
+}
+
+@media (max-width: 650px) {
+  #icons {
+    display: block;
+  }
+
+  #icons:before {
+    content: "\2630";
+  }
+
+  .active #icons:before {
+    content: "\2715";
+  }
+
+  nav ul {
+    position: fixed;
+    left: -100%;
+    top: 40px;
+    flex-direction: column;
+    background: skyblue;
+    width: 100vw !important;
+    height: 95vh !important;
+    text-align: center;
+    transition: left 1s;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    gap: 3px !important;
+    padding-bottom: 10px;
+  }
+
+  nav li {
+    padding: 3px 0;
+
+    a {
+      display: flex;
+      border: 0 !important;
+      background-color: transparent !important;
+      color: black !important;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4em;
+    }
+  }
+
+  nav li:hover {
+    background: rgb(157, 217, 240);
+  }
+
+  nav.active ul {
+    left: 0;
+    margin-top: 0 !important;
+  }
+}

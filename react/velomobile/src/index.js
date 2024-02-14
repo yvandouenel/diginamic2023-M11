@@ -6,11 +6,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ProductsPage from './routes/ProductsPage';
-import HomePage from './routes/HomePage';
-import ErrorPage from './routes/ErrorPage';
-import LoginPage from './routes/LoginPage';
-import LogoutPage from './routes/LogoutPage';
+import ProductsPage from './pages/ProductsPage';
+import HomePage from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
+import LogoutPage from './pages/LogoutPage';
 import 'bootstrap/dist/css/bootstrap.css';
 import './sass/custom.scss';
 

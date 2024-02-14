@@ -1,8 +1,8 @@
-   // Override default variables before the import
-   $danger: yellow;
+@import './variables';
 
-   // Import Bootstrap and its default variables
-   @import '~bootstrap/scss/bootstrap.scss';
-   @import './mixin.scss';
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap';
+@import './mixin';
 
-   @import './header.scss';
+@import './header';
+@import './global';

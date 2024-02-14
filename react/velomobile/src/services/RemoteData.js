@@ -18,6 +18,26 @@ export default class RemoteData {
         return velosMobiles;
       })
   }
+  static deleteVeloMobile(id) {
+    return fetch(`${RemoteData.url}velosMobiles/${id}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "DELETE",
+      })
+      .then((response) => {
+        console.log(`response.status`, response.status);
+        if (response.status == 200) {
+          return response.json();
+        } else throw new Error("Problème de serveur dans deleteVeloMobile. Statut de l'erreur : " + response.status)
+      })
+      .then((veloMobile) => {
+        console.log(`veloMobile supprimé : `, veloMobile);
+        return veloMobile;
+      })
+  }
   static loadUsers() {
     return fetch(RemoteData.url + "users")
       .then((response) => {
