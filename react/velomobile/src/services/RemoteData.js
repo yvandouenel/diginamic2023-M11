@@ -104,4 +104,26 @@ export default class RemoteData {
       .then(data => { console.log(`data reçue après le post : `, data); })
 
   }
+  /**
+  * 
+  * @param {*} newVeloMobile 
+  * @returns 
+  */
+  static putVeloMobile(updatedVeloMobile) {
+    return fetch(`${RemoteData.url}velosMobiles/${updatedVeloMobile.id}`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "PUT",
+      body: JSON.stringify(updatedVeloMobile)
+    })
+      .then((response) => {
+        console.log(`response.status de put VeloMobile`, response.status);
+        if (response.status !== 200) throw new Error("Erreur " + response.status)
+        return response.json();
+      })
+      .then(data => { console.log(`data reçue après le put : `, data); })
+
+  }
 }
