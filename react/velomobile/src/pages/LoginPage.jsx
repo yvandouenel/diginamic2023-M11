@@ -25,7 +25,7 @@ const LoginPage = () => {
               setIsLoggedIn(data);
               if (data) {
                 console.log(`redirection vers la page d'accueil`);
-                navigate('/');
+                navigate('/products');
               }
             });
 

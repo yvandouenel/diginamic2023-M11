@@ -8,11 +8,18 @@
       "weight": 32
     },
     {
-      "id": 2,
-      "model": "lvq",
-      "description": "Le vélo mobile sportif aux performances incroyables",
+      "model": "vm2",
+      "description": "Description vm2",
+      "weight": "23",
       "photo": "vm2.png",
-      "weight": 22
+      "id": 2
+    },
+    {
+      "model": "vm3",
+      "description": "Description vm3",
+      "weight": "345",
+      "photo": "vm3.png",
+      "id": 3
     }
   ],
   "users": [
